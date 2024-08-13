@@ -22,6 +22,9 @@ on:
     paths:
       - infrastructure/**
 
+permissions:
+  id-token: write
+
 env:
   INFRASTRUCTURE_TEMPLATE_LOCATION: ./infrastructure/project.bicep
   INFRASTRUCTURE_PARAMETER_LOCATION: ./project/infrastructure/parameters/common.json ./infrastructure/parameters/common.json

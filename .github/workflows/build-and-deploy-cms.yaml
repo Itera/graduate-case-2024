@@ -8,6 +8,9 @@ on:
     paths:
       - 'cms/**'
 
+permissions:
+  id-token: write
+
 env:
     DOTNET_APP_LOCATION: cms
     DOTNET_APP_NAME: Explore.Cms

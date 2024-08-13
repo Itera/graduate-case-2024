@@ -8,6 +8,9 @@ on:
     paths:
       - 'project/api/**'
 
+permissions:
+  id-token: write
+
 env:
     DOTNET_APP_LOCATION: project/api
     DOTNET_APP_NAME: Company.Api

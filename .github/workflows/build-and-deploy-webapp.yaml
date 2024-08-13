@@ -8,6 +8,9 @@ on:
     paths:
       - 'project/web/**'
 
+permissions:
+  id-token: write
+  
 env:
     WEB_APP_LOCATION: project/web
     WEB_APP_ARTIFACT_LOCATION: dist # relative to WEB_APP_LOCATION
