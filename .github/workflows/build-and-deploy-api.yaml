@@ -44,4 +44,3 @@ jobs:
               app_location: ${{ env.OUTPUT_LOCATION }}
               app_artifact_name: ${{ env.DOTNET_APP_NAME }}
               app_name: ${{ vars.API_FUNCTION_APP_NAME }}
-              azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
