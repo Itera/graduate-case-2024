@@ -36,6 +36,7 @@ runs:
           client-id: ${{ inputs.client_id }}
           tenant-id: ${{ inputs.tenant_id }}
           subscription-id: ${{ inputs.subscription_id }}
+          auth-type: 'IDENTITY'
 
       - name: Build and Deploy web app
         uses: Azure/static-web-apps-deploy@v1
