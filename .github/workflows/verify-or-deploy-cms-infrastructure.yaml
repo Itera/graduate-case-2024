@@ -47,3 +47,4 @@ jobs:
             deploy: ${{ (github.event_name == 'push' || github.event.inputs.deploy) && github.ref == 'refs/heads/main' }}
             environment: ${{ github.event.inputs.environment != null && github.event.inputs.environment || 'dev' }}
             deployment_name: cms-${{ github.run_id }}
+            resource_group: ${{ secrets.AZURE_RESOURCE_GROUP }}

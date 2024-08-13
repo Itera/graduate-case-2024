@@ -30,6 +30,9 @@ inputs:
     description: 'The name of the deployment'
     required: true
     default: 'infrastructure'
+  resource_group:
+    description: 'The name of the resource group'
+    required: true
 
 
 outputs:
