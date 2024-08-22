@@ -20,9 +20,14 @@ function ExcursionOverview() {
         navigate('/whaleSafari');
     };
 
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    interface Excursion {
+        Name: string;
+        Description: string;
+    }
+
+    const [data, setData] = useState<Excursion[] | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
     useEffect(() => {
         const fetchDataForPosts = async () => {
           try {
