@@ -21,7 +21,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "swr": "^2.2.1"
+    "swr": "^2.2.1",
+    "bootstrap": "^5.3.3",
+    "react-bootstrap": "^2.10.4"
   },
   "devDependencies": {
     "@chakra-ui/storybook-addon": "^5.0.0",

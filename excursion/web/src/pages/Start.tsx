@@ -5,7 +5,6 @@ import {
 import {
   Box,
   Button,
-  ButtonGroup,
   Flex,
   Heading,
   Text,
@@ -26,9 +25,7 @@ import "../style/Start.css"
 
 const Start = () => {
   const { accounts } = useMsal();
-  const account = useAccount(accounts[0] || {});
-  const accessToken = useAccessToken();
-  
+  const account = useAccount(accounts[0] || {});  
   const {
     data: guest,
     isLoading,
@@ -157,31 +154,4 @@ const Start = () => {
     </Flex>
   );
 };
-
-const CopyToClipboardButton = (text: string, label?: string) => {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
-  };
-
-  return (
-    <Tooltip label={label ?? 'Copy to clipboard'}>
-      <Button
-        w="fit-content"
-        p="4"
-        px="4px"
-        colorScheme="blue"
-        borderRadius="10px"
-        m="0 auto"
-        mt="8"
-        fontWeight="bold"
-        color="white"
-        fontSize="l"
-        onClick={copyToClipboard}
-      >
-        📄
-      </Button>
-    </Tooltip>
-  );
-}
-
 export default Start;
