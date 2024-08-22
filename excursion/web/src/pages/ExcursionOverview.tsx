@@ -8,15 +8,47 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../style/ExcursionOverview.css'; 
+import { useState, useEffect } from "react";
 
 
 
 function ExcursionOverview() {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    useEffect(() => {
+        const fetchDataForPosts = async () => {
+          try {
+            const response = await fetch(
+              `http://localhost:7072/api/excursions`
+            );
+            if (!response.ok) {
+              throw new Error(`HTTP error: Status ${response.status}`);
+            }
+            let postsData = await response.json();
+            setData(postsData);
+            setError(null);
+          } catch (err) {
+            setData(null);
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchDataForPosts();
+      }, []);
+
+    if (!data) {
+        return <div>Loading...</div>;
+    }
+
     const navigate = useNavigate();
 
     const handleClick = () => {
         navigate('/whaleSafari');
     };
+    
+
 
     return (
         <div className="main">
@@ -38,7 +70,8 @@ function ExcursionOverview() {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>Whale Safari</h3>
+                            
+                            <h3>{data[0].Name}</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={10000}>
@@ -48,7 +81,7 @@ function ExcursionOverview() {
                             alt="Second slide"
                         />
                         <Carousel.Caption>
-                            <h3>Dog Sled</h3>
+                            <h3>{data[1].Name}</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={10000}>
@@ -58,7 +91,7 @@ function ExcursionOverview() {
                             alt="Third slide"
                         />
                         <Carousel.Caption>
-                            <h3>Rib</h3>
+                            <h3>{data[2].Name}</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
