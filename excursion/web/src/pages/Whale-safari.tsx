@@ -2,7 +2,6 @@ import dogsled from '../assets/img/dogsled.png';
 import rib from '../assets/img/rib.png';
 import orca from '../assets/img/whale.png';
 import { Link } from 'react-router-dom';
-import excursion from '../assets/dummyData/excursion.json';
 import { excursionID } from './ExcursionOverview';
 import { useState, useEffect } from 'react';
 
@@ -78,8 +77,6 @@ const WhaleSafari = () => {
   }
 
   const [data, setData] = useState<Excursion[] | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
   useEffect(() => {
     const fetchDataForPosts = async () => {
       try {
@@ -89,11 +86,8 @@ const WhaleSafari = () => {
         }
         let postsData = await response.json();
         setData(postsData);
-        setError(null);
       } catch (err) {
         setData(null);
-      } finally {
-        setLoading(false);
       }
     };
     fetchDataForPosts();

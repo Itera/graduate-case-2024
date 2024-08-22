@@ -26,8 +26,6 @@ function ExcursionOverview() {
   }
 
   const [data, setData] = useState<Excursion[] | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
   useEffect(() => {
     const fetchDataForPosts = async () => {
       try {
@@ -37,11 +35,8 @@ function ExcursionOverview() {
         }
         let postsData = await response.json();
         setData(postsData);
-        setError(null);
       } catch (err) {
         setData(null);
-      } finally {
-        setLoading(false);
       }
     };
     fetchDataForPosts();
